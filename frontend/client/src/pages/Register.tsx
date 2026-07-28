@@ -29,13 +29,36 @@ export default function Register() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+  const handleRegister = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement registration logic with tRPC
-    console.log("Register attempt:", formData);
-  };
+  try {
+    const response = await fetch("http://127.0.0.1:8000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+      }),
+    });
 
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Registration Successful");
+      console.log(data);
+    } else {
+      alert("Registration Failed");
+      console.log(data);
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Server Error");
+  }
+};
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
