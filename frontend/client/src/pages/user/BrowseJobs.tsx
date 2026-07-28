@@ -7,34 +7,34 @@ import { Label } from "@/components/ui/label";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Search, MapPin, Briefcase, DollarSign, Bookmark, BookmarkCheck, ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const JOBS = [
-  { id: 1, title: "Senior React Developer", company: "TechCorp", salary: "$120k - $160k", experience: "5+ years", type: "Full-time", mode: "Remote", skills: ["React", "TypeScript", "Node.js"], logo: "TC", saved: false },
-  { id: 2, title: "Product Manager", company: "StartupXYZ", salary: "$100k - $140k", experience: "3+ years", type: "Full-time", mode: "Hybrid", skills: ["Product Strategy", "Analytics", "Leadership"], logo: "SX", saved: true },
-  { id: 3, title: "UX/UI Designer", company: "DesignStudio", salary: "$80k - $120k", experience: "2+ years", type: "Full-time", mode: "On-site", skills: ["Figma", "UI Design", "Prototyping"], logo: "DS", saved: false },
-  { id: 4, title: "Backend Engineer", company: "TechCorp", salary: "$130k - $170k", experience: "4+ years", type: "Full-time", mode: "Remote", skills: ["Python", "PostgreSQL", "AWS"], logo: "TC", saved: false },
-  { id: 5, title: "Data Scientist", company: "FinanceHub", salary: "$110k - $150k", experience: "3+ years", type: "Full-time", mode: "Hybrid", skills: ["Python", "ML", "Statistics"], logo: "FH", saved: false },
-  { id: 6, title: "DevOps Engineer", company: "CloudTech", salary: "$100k - $140k", experience: "3+ years", type: "Full-time", mode: "Remote", skills: ["Kubernetes", "Docker", "AWS"], logo: "CT", saved: false },
-];
 
 const JOB_TYPES = ["Full-time", "Part-time", "Contract", "Freelance"];
 const WORK_MODES = ["Remote", "On-site", "Hybrid"];
 
 export default function BrowseJobs() {
   const [, navigate] = useLocation();
+  const [jobs, setJobs] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
     type: "",
     mode: "",
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const [savedJobs, setSavedJobs] = useState<number[]>(JOBS.filter(j => j.saved).map(j => j.id));
+  const [savedJobs, setSavedJobs] = useState<number[]>([]);
+  useEffect(() => {
+  fetch("http://127.0.0.1:8000/jobs")
+    .then((res) => res.json())
+    .then((data) => {
+      setJobs(data);
+    })
+    .catch((err) => console.error(err));
+   }, []);
 
-  const filteredJobs = JOBS.filter((job) => {
+  const filteredJobs = jobs.filter((job) => {
     if (searchQuery && !job.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-    if (filters.type && job.type !== filters.type) return false;
-    if (filters.mode && job.mode !== filters.mode) return false;
+    
     return true;
   });
 
@@ -153,7 +153,7 @@ export default function BrowseJobs() {
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-start gap-4 flex-1">
                         <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center font-bold text-accent">
-                          {job.logo}
+                          {job.company.charAt(0)}
                         </div>
                         <div className="flex-1">
                           <h3 className="font-bold text-lg group-hover:text-accent transition-colors cursor-pointer">
@@ -179,25 +179,18 @@ export default function BrowseJobs() {
                         <DollarSign className="w-4 h-4" />
                         {job.salary}
                       </div>
+                      
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Briefcase className="w-4 h-4" />
-                        {job.experience}
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Badge variant="secondary">{job.type}</Badge>
+                        
                       </div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <MapPin className="w-4 h-4" />
-                        {job.mode}
+                        {job.location}
                       </div>
                     </div>
 
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {job.skills.map((skill) => (
-                        <Badge key={skill} variant="outline">
-                          {skill}
-                        </Badge>
-                      ))}
+                      
                     </div>
 
                     <div className="flex gap-3">
