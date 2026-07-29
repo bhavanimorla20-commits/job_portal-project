@@ -54,6 +54,9 @@ export function serveStatic(app: Express) {
     "dist",
     "public"
   );
+  console.log("import.meta.dirname =", import.meta.dirname);
+  console.log("Resolved distPath =", distPath);
+  console.log("Exists =", fs.existsSync(distPath));
 
   if (!fs.existsSync(distPath)) {
     throw new Error(`Build directory not found: ${distPath}`);
