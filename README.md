@@ -1,6 +1,6 @@
 # 🚀 Job Portal Project
 
-A Full Stack Job Portal application developed using React, FastAPI and PostgreSQL. This platform allows users to register, login, browse jobs and apply for jobs, while recruiters can manage companies and job postings.
+Job Portal application developed using React, FastAPI and PostgreSQL. This platform allows users to register, login, browse jobs and apply for jobs, while recruiters can manage companies and job postings.
 
 ---
 
