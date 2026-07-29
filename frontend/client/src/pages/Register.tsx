@@ -33,7 +33,7 @@ export default function Register() {
   e.preventDefault();
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/register", {
+    const response = await fetch("http://https://job-portal-project-tl24.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

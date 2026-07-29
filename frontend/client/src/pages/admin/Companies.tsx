@@ -4,7 +4,7 @@ export default function Companies() {
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/company")
+    fetch("http://https://job-portal-project-tl24.onrender.com/company")
       .then((res) => res.json())
       .then((data) => setCompanies(data))
       .catch((err) => console.log(err));

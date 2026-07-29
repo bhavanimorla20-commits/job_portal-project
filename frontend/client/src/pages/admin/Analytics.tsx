@@ -24,22 +24,22 @@ export default function Analytics() {
   const [applicationStatus, setApplicationStatus] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/dashboard/total-users")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/total-users")
       .then((res) => res.json())
       .then((data) => setTotalUsers(data.total_users))
       .catch(console.error);
 
-    fetch("http://127.0.0.1:8000/dashboard/monthly-growth")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/monthly-growth")
       .then((res) => res.json())
       .then((data) => setMonthlyGrowth(data))
       .catch(console.error);
 
-    fetch("http://127.0.0.1:8000/dashboard/company-trends")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/company-trends")
       .then((res) => res.json())
       .then((data) => setCompanyTrends(data))
       .catch(console.error);
 
-    fetch("http://127.0.0.1:8000/dashboard/application-status")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/application-status")
       .then((res) => res.json())
       .then((data) => setApplicationStatus(data))
       .catch(console.error);

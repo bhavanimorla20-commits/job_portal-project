@@ -11,7 +11,7 @@ export default function Users() {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/dashboard/recent-users")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/recent-users")
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => console.log(err));

@@ -24,7 +24,7 @@ export default function BrowseJobs() {
   const [currentPage, setCurrentPage] = useState(1);
   const [savedJobs, setSavedJobs] = useState<number[]>([]);
   useEffect(() => {
-  fetch("http://127.0.0.1:8000/jobs")
+  fetch("http://https://job-portal-project-tl24.onrender.com/jobs")
     .then((res) => res.json())
     .then((data) => {
       setJobs(data);

@@ -39,43 +39,43 @@ export default function AdminDashboard() {
   const [recentUsers, setRecentUsers] = useState<Array<{ id: string | number; username: string; email: string; role: string; joinedDate: string }>>([]);
 
 useEffect(() => {
-  fetch("http://127.0.0.1:8000/dashboard/total-users")
+  fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/total-users")
     .then((res) => res.json())
     .then((data) => {
       console.log("Total Users:", data);
       setTotalUsers(data.total_users);
     })
     .catch((err) => console.error(err));
-  fetch("http://127.0.0.1:8000/jobs")
+  fetch("http://https://job-portal-project-tl24.onrender.com/jobs")
     .then((res) => res.json())
     .then((data) => {
       console.log("jobs:", data);
       setActiveJobs(data.length);
     })
     .catch((err) => console.error(err));
-    fetch("http://127.0.0.1:8000/company")
+    fetch("http://https://job-portal-project-tl24.onrender.com/company")
     .then((res) => res.json())
     .then((data) => {
       console.log("Companies:", data);
       setCompanies(data.length);
     })
     .catch((err) => console.error(err));
-    fetch("http://127.0.0.1:8000/dashboard/monthly-growth")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/monthly-growth")
     .then((res) => res.json())
     .then((data) =>
     setPlatformMetrics(data))
     .catch((err) => console.error(err));
-    fetch("http://127.0.0.1:8000/dashboard/company-trends")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/company-trends")
     .then((res) => res.json())
     .then((data) =>
     setCompanyTrends(data))
     .catch((err) => console.error(err));
-    fetch("http://127.0.0.1:8000/dashboard/application-status")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/application-status")
     .then((res) => res.json())
     .then((data) =>
     setApplications(data))
     .catch((err) => console.error(err));
-    fetch("http://127.0.0.1:8000/dashboard/recent-users")
+    fetch("http://https://job-portal-project-tl24.onrender.com/dashboard/recent-users")
     .then((res) => res.json())
     .then((data) =>
     setRecentUsers(data))
