@@ -34,7 +34,7 @@ export default function Register() {
 
   try {
     const response = await fetch(
-      "http://https://job-portal-project-tl24.onrender.com/register", {
+      "https://job_portal-project-tl24.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

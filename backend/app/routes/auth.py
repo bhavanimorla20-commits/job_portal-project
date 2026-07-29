@@ -59,3 +59,25 @@ def profile(
         "message": "Protected Route",
         "user": payload
     }
+@router.post("/register")
+def register(user: UserCreate):
+    db = SessionLocal()
+
+    existing_user = db.query(User).filter(User.email == user.email).first()
+
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email already exists")
+
+    new_user = User(
+        username=user.username,
+        email=user.email,
+        password=user.password
+    )
+
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+
+    return {
+        "message": "Registration successful"
+    }
