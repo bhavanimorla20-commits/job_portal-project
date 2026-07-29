@@ -19,7 +19,8 @@ export default function Login() {
   e.preventDefault();
 
   try {
-    const response = await fetch("https://job-portal-project-tl24.onrender.com/login", {
+    const response = await 
+    fetch("https://job-portal-project-tl24.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
