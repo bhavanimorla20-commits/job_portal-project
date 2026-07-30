@@ -72,7 +72,8 @@ def register(user: UserCreate):
     new_user = User(
         username=user.username,
         email=user.email,
-        password=user.password
+        password=user.password,
+        role="recruiter"
     )
 
     db.add(new_user)
