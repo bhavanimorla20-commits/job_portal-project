@@ -47,9 +47,17 @@ export default function ApplyJob() {
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
+  const userId = localStorage.getItem("user_id");
+
+  if (!userId) {
+    alert("Please login first.");
+    navigate("/login");
+    return;
+  }
+
   try {
     const response = await fetch(
-      `https://job-portal-project-tl24.onrender.com/apply/${jobId}?user_id=1`,
+      `https://job-portal-project-tl24.onrender.com/apply/${jobId}?user_id=${userId}`,
       {
         method: "POST",
       }
@@ -58,10 +66,10 @@ export default function ApplyJob() {
     const data = await response.json();
 
     if (response.ok) {
-      alert("Application Submitted Successfully");
-      navigate("/user/browse-jobs");
+      alert("Application submitted successfully!");
+      navigate("/user/applications");
     } else {
-      alert(data.message);
+      alert(data.message || "Application failed");
     }
   } catch (error) {
     console.error(error);
