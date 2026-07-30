@@ -36,7 +36,8 @@ def login(user: UserCreate):
         "token_type": "bearer",
         "user_id": db_user.id,
         "username": db_user.username,
-        "email": db_user.email
+        "email": db_user.email,
+        "role": db_user.role
     }
 
 
