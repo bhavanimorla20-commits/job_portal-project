@@ -38,7 +38,16 @@ export default function Login() {
       alert("Login Successful");
       localStorage.setItem("token", data.access_token);
       localStorage.setItem("user_id",data.user_id);
-      navigate("/");
+      localStorage.setItem("role", data.role);
+
+  if (data.role === "admin") {
+    navigate("/admin/dashboard");
+  } else if (data.role === "recruiter") {
+    navigate("/recruiter/dashboard");
+  } else {
+    navigate("/user/dashboard");
+  }
+
     } else {
       alert(data.detail);
     }
