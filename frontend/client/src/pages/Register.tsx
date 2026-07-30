@@ -51,6 +51,7 @@ export default function Register() {
     if (response.ok) {
       alert("Registration Successful");
       console.log(data);
+      navigate("/");
     } else {
       alert("Registration Failed");
       console.log(data);
