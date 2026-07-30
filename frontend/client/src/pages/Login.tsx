@@ -37,6 +37,7 @@ export default function Login() {
     if (response.ok) {
       alert("Login Successful");
       localStorage.setItem("token", data.access_token);
+      localStorage.setItem("user_id",data.user_id);
       navigate("/");
     } else {
       alert(data.detail);

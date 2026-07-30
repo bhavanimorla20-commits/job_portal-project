@@ -4,11 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowLeft, Upload, FileText } from "lucide-react";
-import { useLocation } from "wouter";
+import { useLocation, useRoute } from "wouter";
 import { useState } from "react";
 
 export default function ApplyJob() {
   const [, navigate] = useLocation();
+  const [, params]= useRoute("/user/apply/:jobId");
+  const jobId = params?.jobId
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -42,10 +44,30 @@ export default function ApplyJob() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Application submitted:", formData);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch(
+      `https://job-portal-project-tl24.onrender.com/apply/${jobId}?user_id=1`,
+      {
+        method: "POST",
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Application Submitted Successfully");
+      navigate("/user/browse-jobs");
+    } else {
+      alert(data.message);
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Server Error");
+  }
+};
 
   return (
     <div className="min-h-screen bg-background">

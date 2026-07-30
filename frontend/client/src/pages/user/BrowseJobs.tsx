@@ -24,7 +24,7 @@ export default function BrowseJobs() {
   const [currentPage, setCurrentPage] = useState(1);
   const [savedJobs, setSavedJobs] = useState<number[]>([]);
   useEffect(() => {
-  fetch("http://https://job-portal-project-tl24.onrender.com/jobs")
+  fetch("https://job-portal-project-tl24.onrender.com/jobs")
     .then((res) => res.json())
     .then((data) => {
       setJobs(data);
@@ -131,6 +131,7 @@ export default function BrowseJobs() {
               {/* Clear Filters */}
               <Button
                 variant="outline"
+
                 className="w-full"
                 onClick={() => {
                   setFilters({ type: "", mode: "" });
