@@ -184,13 +184,13 @@ export default function Home() {
           </div>
 
           {/* Hero Illustration */}
-          <div className="glass-card p-8 min-h-[420px] flex flex-col justify-center gap-6">
+          <div className="glass-card p-6 min-h-[420px] flex flex-col justify-center gap-4">
 
-          <Card className="p-4 shadow-md
+          <Card className="p-3 shadow-md
           hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <h3 className="font-bold text-lg">📈 
           Jobs Available</h3>
-            <p className="text-3xl font-bold text-blue-600">12,500+</p>
+            <p className="text-2xl font-bold text-blue-600">12,500+</p>
           </Card>
 
           <Card className="p-4 shadow-md
