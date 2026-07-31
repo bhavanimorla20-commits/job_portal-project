@@ -79,7 +79,7 @@
   /* Premium effects */
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.2);
-  scroll-behavior: smooth;
+  
   font-family: 'Inter', 'Sora', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -282,4 +282,7 @@
       @apply transition-colors duration-200;
     }
   }
+}
+html {
+  scroll-behavior: smooth;
 }
