@@ -190,21 +190,21 @@ export default function Home() {
           hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <h3 className="font-bold text-lg">📈 
           Jobs Available</h3>
-            <p className="text-3xl font-bold text-blue-600">50,000+</p>
+            <p className="text-3xl font-bold text-blue-600">12,500+</p>
           </Card>
 
           <Card className="p-4 shadow-md
           hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <h3 className="font-bold text-lg">🏢 
           Companies</h3>
-            <p className="text-3xl font-bold text-green-600">10,000+</p>
+            <p className="text-3xl font-bold text-green-600">850+</p>
           </Card>
 
           <Card className="p-4 shadow-md
           hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <h3 className="font-bold text-lg">👨‍💼 
           Candidates</h3>
-            <p className="text-3xl font-bold text-purple-600">500,000+</p>
+            <p className="text-3xl font-bold text-purple-600">25,000+</p>
           </Card>
 
         </div>
