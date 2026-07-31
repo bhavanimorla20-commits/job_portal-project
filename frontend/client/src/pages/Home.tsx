@@ -128,7 +128,7 @@ export default function Home() {
       <section
        id="home"
        className="container py-20 md:py-32
-       bg-gradient-to-r from-blue-50 via-white to -blue-50 rounded-3xl"
+       bg-gradient-to-r from-blue-50 via-white to-blue-50 rounded-3xl"
        >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -383,7 +383,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="container py-16">
         <Card className="glass-card p-12 text-center space-y-6 bg-gradient-to-r from-accent/10 to-accent/5">
-          <h2 className="text-3xl md:text-4xl font-bold">Ready to ?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Ready to Find Your Dream Job?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Join thousands of professionals who have found their perfect match on our platform.
           </p>
